@@ -59,29 +59,61 @@ section {
 }
 
 .btn-add:hover {
-    background: rgba(154, 130, 30, 0.5);
+    background: rgba(154, 130, 30, 0.32);
     color: white;
-    transition: 0.4s;
+    border: 1px solid transparent;
+    transition: 0.35s;
 }
 
 .todo-feed {
-    background: red;
-    /* width: 50%; */
-    margin-top: 5%;
+    width: 100%;
+    margin: 5% 0;
 }
 
 .todo-container {
-    background-color: aqua;
-    margin: 0 5%;
-    /* width: 25%; */
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    background: white;
+    margin: 0 8%;
+    padding: 3% 0%;
+    border-radius: 5px;
+    border: 1px solid black;
 }
 
+.todo {
+    width: 75%;
+    padding-left: 5%;
+    font-size: 1.2rem;
+}
 
 .option-todo {
-    /* width: 50%; */
     display: flex;
     justify-content: space-around;
+    width: 30%;
+}
+
+.btn {
+    border: none;
+    background: transparent;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    display: none;
+  }
+  
+.btn-modify:hover {
+    color: orange;
+    transition: 0.3s;
+}
+
+.btn-valid:hover {
+    color: green;
+    transition: 0.3s;
+}
+.btn-delete:hover {
+    color: red;
+    transition: 0.3s;
 }
