@@ -99,15 +99,7 @@ section {
     background: transparent;
     font-size: 1.2rem;
     cursor: pointer;
-}
-
-input[type="checkbox"] {
-    display: none;
-  }
-  
-.btn-modify:hover {
-    color: orange;
-    transition: 0.3s;
+    color: black
 }
 
 .btn-valid:hover {

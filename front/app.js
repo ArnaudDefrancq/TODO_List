@@ -33,7 +33,7 @@ const fetchData = async () => {
     .catch((e) => console.log(e));
 };
 
-const createTodo = ({ content }) => {
+const createTodo = ({ content, _id }) => {
   const todoFeed = document.getElementById("todoFeed");
 
   const todoContainer = document.createElement("div");
@@ -49,27 +49,33 @@ const createTodo = ({ content }) => {
   optionTodo.className = "option-todo";
   todoContainer.appendChild(optionTodo);
 
-  const btnModify = document.createElement("button");
-  btnModify.className = "btn btn-modify";
-  btnModify.innerHTML = `<i class="fa-solid fa-pen"></i>`;
-  optionTodo.appendChild(btnModify);
+  const btnValid = document.createElement("button");
+  btnValid.className = "btn btn-valid";
+  btnValid.id = "btnValid";
+  btnValid.innerHTML = `<i class="fa-solid fa-square-check"></i>`;
+  optionTodo.appendChild(btnValid);
 
-  const inputValid = document.createElement("input");
-  inputValid.type = "checkbox";
-  inputValid.name = "valid";
-  inputValid.className = "btn btn-valid";
-  optionTodo.appendChild(inputValid);
-
-  const labelValid = document.createElement("label");
-  labelValid.className = "btn btn-valid";
-  labelValid.htmlFor = "valid";
-  labelValid.innerHTML = `<i class="fa-solid fa-square-check"></i>`;
-  optionTodo.appendChild(labelValid);
+  btnValid.addEventListener("click", () => {
+    if ((btnValid.style.color = "black")) {
+      btnValid.style.color = "green";
+    }
+  });
 
   const btnDelete = document.createElement("button");
   btnDelete.className = "btn btn-delete";
+  btnDelete.id = "btnDelete";
   btnDelete.innerHTML = `<i class="fa-solid fa-trash"></i>`;
   optionTodo.appendChild(btnDelete);
+
+  btnDelete.addEventListener("click", () => {
+    fetch("http://localhost:5000/api/todo/" + _id, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .catch((e) => console.log(e));
+
+    window.location.reload();
+  });
 };
 
 const createAllTodo = (data) => {
